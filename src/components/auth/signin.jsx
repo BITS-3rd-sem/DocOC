@@ -40,7 +40,7 @@ function Signin() {
         setTimeout(() => {
           setIsLoading(false);
           auth.login(res.data)
-          const path = auth?.user?.roleType === "ADMIN" ? '/admin-dashboard' : '/user-dashboard';
+          const path = auth?.user?.roleType === "ADMIN" ? '/admin-dashboard' : auth?.user?.roleType === "DOCTOR" ? '/doctor-dashboard' : '/user-dashboard';
           const redirectUrl = location.state?.path || path;
           navigate(redirectUrl, {replace: true})
         }, 500);

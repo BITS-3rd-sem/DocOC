@@ -8,7 +8,7 @@ export const RequireAuth = ({children, role}) =>{
         window.location.assign('/signin')
     }
     else if(role && (auth.user.roleType !== role)){
-        const path = auth?.user?.roleType === "ADMIN" ? '/admin-dashboard' : '/user-dashboard';
+        const path = auth?.user?.roleType === "ADMIN" ? '/admin-dashboard' : auth?.user?.roleType === "DOCTOR" ? '/doctor-dashboard' : '/user-dashboard';
         return <Navigate to={path}/>
     }
 
