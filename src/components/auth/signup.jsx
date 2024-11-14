@@ -112,7 +112,7 @@ function Signup() {
         </div>
         <div className="col-lg-6 signin-container d-flex flex-column justify-content-center align-items-center pt-lg-0 pt-1">
           <div className='col-lg-8 col-10 mb-4'>
-            <h1 className='app-name'>QuizIT</h1>
+            <h1 className='app-name'>DocOc</h1>
             <h3 className='form-heading'>Sign Up</h3>
           </div>
           <Form className="col-lg-8 col-10">

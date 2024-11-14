@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Signin from './components/auth/signin'
 import Signup from './components/auth/signup';
 import { AuthProvider } from './helpers/contexts/AuthContext';
