@@ -81,9 +81,9 @@ function Signin() {
 
   return (
     <div className='row w-100 signin'>
-        {/* <div className='col-lg-6 d-lg-flex d-none align-items-center justify-content-center banner'>
+        <div className='col-lg-6 d-lg-flex d-none align-items-center justify-content-center banner'>
             <img src={singin} alt="signin" className='w-75'/>
-        </div> */}
+        </div>
         <div className="col-lg-6 signin-container d-flex flex-column justify-content-center align-items-center pt-lg-0 pt-1">
           <div className='col-lg-8 col-10 mb-4'>
             <h1 className='app-name'>DocOc</h1>
