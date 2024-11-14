@@ -1,8 +1,23 @@
-# React + Vite
+# DocOC Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting Started
 
-Currently, two official plugins are available:
+To get started with the project, follow the steps below:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installation
+
+First, install the project dependencies:
+
+```bash
+npm install
+```
+
+### Running the Development Server
+
+To run the development server, use the following command:
+
+```bash
+npm run dev
+```
+
+This will start the development server and you can view the application in your browser.
