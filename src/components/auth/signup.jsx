@@ -136,7 +136,7 @@ function Signup() {
             <Button variant="primary" type="submit" className='w-100 mt-3 submit-btn' onClick={(e)=> handleSubmit(e)}>
               Sign in
             </Button>
-            <span className='mt-2 mx-auto col-lg-8 col-11 d-block'>Aldready registered? <Link className="primary-link" to="/signin">Sign-in here</Link></span>
+            <span className='mt-2 mx-auto col-lg-8 col-11 d-block'>Aldready registered? <Link className="primary-link" to="/">Sign-in here</Link></span>
           </Form>
         </div>
         {toastMessage?.message && <ToastMessage message={toastMessage.message} type={toastMessage.type}/>}
