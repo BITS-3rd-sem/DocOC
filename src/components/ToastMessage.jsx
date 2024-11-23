@@ -1,4 +1,5 @@
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 
 function ToastMessage({message, type}) {
@@ -6,12 +7,12 @@ function ToastMessage({message, type}) {
  function showToast() {
   if(type==="error"){
     toast.error(message, {
-      position: toast.POSITION.TOP_RIGHT
+      position: "top-right"
     });
   }
   else if(type==="success"){
     toast.success(message, {
-      position: toast.POSITION.TOP_RIGHT
+      position: "top-right"
     });
   }
  }
@@ -23,7 +24,7 @@ function ToastMessage({message, type}) {
       autoClose={5000}
       hideProgressBar={true}
       newestOnTop={true}
-      closeOnClick
+      closeOnClick={true}
       rtl={false}
       pauseOnFocusLoss
       theme="light"/>

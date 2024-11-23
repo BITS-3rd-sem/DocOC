@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = "https://users-service.cfapps.us10-001.hana.ondemand.com/users";
+const baseUrl = "http://localhost:8080/users";
 
 const bearerToken = localStorage.getItem("token");
 
