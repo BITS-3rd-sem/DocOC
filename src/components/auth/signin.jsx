@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import singin from "../../assets/images/signin.svg"
 import "../../stylesheets/Signin.css"
 import { Button, Form } from 'react-bootstrap'
@@ -39,8 +39,8 @@ function Signin() {
       UserService.loginUser(userEmail, userPassword).then((res)=>{
         setTimeout(() => {
           setIsLoading(false);
-          auth.login(res.data)
-          const path = auth?.user?.roleType === "ADMIN" ? '/admin-dashboard' : auth?.user?.roleType === "DOCTOR" ? '/doctor-dashboard' : '/user-dashboard';
+          const user = auth.login(res.data)
+          const path = user?.role === "ADMIN" ? '/admin-dashboard' : user?.role === "DOCTOR" ? '/doctor-dashboard' : '/user-dashboard';
           const redirectUrl = location.state?.path || path;
           navigate(redirectUrl, {replace: true})
         }, 500);
@@ -52,6 +52,7 @@ function Signin() {
       })
     }
   }
+
 
   const validateEmail = (email) => {
     const isEmailValid = String(email)

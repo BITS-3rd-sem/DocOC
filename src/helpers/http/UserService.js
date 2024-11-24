@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = "https://users-service.cfapps.us10-001.hana.ondemand.com/users";
+const baseUrl = "http://localhost:8080/users";
 
 const bearerToken = localStorage.getItem("token");
 
@@ -18,7 +18,7 @@ class UserService {
      * @returns {Promise} A promise that resolves to the list of users.
      */
     getAllUsers = async () =>{
-        return axios.get(`${baseUrl}/getall`,config);
+        return axios.get(`${baseUrl}`,config);
     }
 
     /**

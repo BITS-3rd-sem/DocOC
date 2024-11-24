@@ -6,10 +6,13 @@ export const AuthProvider = ({children}) =>{
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const[user,setUser] = useState(storedUser);
 
-    const login = (user) =>{
-        setUser(user.user);
-        localStorage.setItem("user", JSON.stringify(user.user));
-        localStorage.setItem("token", user.token)
+    const login = (userResponse) =>{
+        console.log(user)
+        setUser(userResponse.user);
+        console.log(user)
+        localStorage.setItem("user", JSON.stringify(userResponse.user));
+        localStorage.setItem("token", userResponse.token)
+        return userResponse.user;
     }
 
     const logout = () =>{
