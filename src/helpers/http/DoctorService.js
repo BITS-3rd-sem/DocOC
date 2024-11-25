@@ -13,7 +13,8 @@ const getBearerToken = () => {
     }
     return {
       headers: {
-        Authorization: `Bearer ${token}`
+        'Authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
       },
       withCredentials: true,
     };
@@ -26,15 +27,9 @@ class DoctorService {
      * @returns {Promise} A promise that resolves to the response containing all doctors.
      */
     getAllDoctors = async () =>{
-        try {
-            const config = getConfig();
-            const response = await axios.get(baseUrl, config);
-            return response;
-          } catch (error) {
-            console.error("Error fetching doctors:", error);
-            throw error;
-          }
+       return await axios.get(`${baseUrl}`, getConfig());
     }
+    
 
     /**
      * Retrieves a doctor by its ID.
@@ -54,7 +49,7 @@ class DoctorService {
      * @returns {Promise} A promise that resolves to the response containing the created doctor.
      */
     createDoctor = async (doctorData) =>{
-        return axios.post(`${baseUrl}`, doctorData, getConfig());
+        return await axios.post(`${baseUrl}`, doctorData, getConfig());
     }
 
     /**
