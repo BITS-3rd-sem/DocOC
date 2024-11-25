@@ -92,17 +92,29 @@
     text-align: left;
     overflow: hidden; /* Ensure content does not overflow */
     word-wrap: break-word; /* Break long words */
-    position: relative; /* Add relative positioning for the delete button */
+    position: relative; /* Add relative positioning for the buttons */
+}
+
+.edit-button, .delete-button {
+    position: absolute;
+    top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button {
+    right: 40px; /* Position the edit button to the left of the delete button */
+    color: #007bff;
+}
+
+.edit-button:hover {
+    color: #0056b3;
 }
 
 .delete-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
+    right: 10px; /* Position the delete button to the right */
     color: #ff4d4d;
-    cursor: pointer;
 }
 
 .delete-button:hover {

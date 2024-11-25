@@ -58,8 +58,8 @@ class DoctorService {
      * @param {Object} doctorData - The updated data of the doctor.
      * @returns {Promise} A promise that resolves to the response containing the updated doctor.
      */
-    updateDoctor = async (doctorData) =>{
-        return axios.put(`${baseUrl}/${doctorData?.id}`, doctorData, getConfig());
+    updateDoctor = async (id, doctorData) =>{
+        return axios.put(`${baseUrl}/${id}`, doctorData, getConfig());
     }
 
     /**
