@@ -39,6 +39,7 @@ class UserService {
      * @returns {Promise} A promise that resolves to the registration result.
      */
     registerUser = async (userData) =>{
+        console.log(userData);
         return axios.post(`${baseUrl}/register`, userData);
     }
 

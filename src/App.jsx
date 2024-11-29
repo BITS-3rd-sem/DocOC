@@ -6,6 +6,7 @@ import Signup from './components/auth/signup';
 import { AuthProvider } from './helpers/contexts/AuthContext';
 import { RequireAuth } from './helpers/RequireAuth';
 import { RequireNoAuth } from './helpers/RequireNoAuth';
+import PatientDashboard from './pages/PatientDashboard';
 function App() {
   return (
     <div className='App'>
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<RequireNoAuth><Signin/></RequireNoAuth>}/>
           <Route path='/signup' element={<RequireNoAuth><Signup/></RequireNoAuth>}/>
+          <Route path='/patient-dashboard' element={<RequireAuth><PatientDashboard /></RequireAuth>}/>
         </Routes>
       </AuthProvider>
     </div>
