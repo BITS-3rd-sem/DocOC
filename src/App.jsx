@@ -9,16 +9,19 @@ import { RequireNoAuth } from './helpers/RequireNoAuth';
 import PatientDashboard from './pages/PatientDashboard';
 import DoctorAppointment from './pages/DoctorAppointment';
 import DoctorDashboard from './pages/DoctorDashboard';
+import RootRedirect from './components/auth/rootRedirect';
+import AdminDashboard from './pages/AdminDashboard';
 function App() {
   return (
     <div className='App'>
       <AuthProvider>
         <Routes>
-          <Route path='/' element={<RequireNoAuth><Signin/></RequireNoAuth>}/>
+          <Route path='/'  element={<RootRedirect />}/>
           <Route path='/signup' element={<RequireNoAuth><Signup/></RequireNoAuth>}/>
           <Route path='/patient-dashboard' element={<RequireAuth><PatientDashboard /></RequireAuth>}/>
           <Route path='/doctor-appointment' element={<RequireAuth><DoctorAppointment/></RequireAuth>}/>
           <Route path='/doctor-dashboard' element={<RequireNoAuth><DoctorDashboard/></RequireNoAuth>}/>
+          <Route path='/admin-dashboard' element={<RequireAuth><AdminDashboard/></RequireAuth>}/>
         </Routes>
       </AuthProvider>
     </div>

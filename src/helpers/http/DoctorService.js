@@ -57,6 +57,34 @@ class DoctorService {
   //     console.log(DoctorData);
   //     return axios.post(`${baseUrl}/register`, DoctorData);
   // }
+    /**
+     * Creates a new doctor.
+     *
+     * @param {Object} doctorData - The data of the doctor to be created.
+     * @returns {Promise} A promise that resolves to the response containing the created doctor.
+     */
+    createDoctor = async (doctorData) =>{
+      return await axios.post(`${baseUrl}`, doctorData, getConfig());
+  }
+      /**
+     * Updates an existing doctor.
+     *
+     * @param {Object} doctorData - The updated data of the doctor.
+     * @returns {Promise} A promise that resolves to the response containing the updated doctor.
+     */
+      updateDoctor = async (id, doctorData) =>{
+        return axios.put(`${baseUrl}/${id}`, doctorData, getConfig());
+    }
+
+        /**
+     * Deletes a doctor by its ID.
+     *
+     * @param {number} doctorId - The ID of the doctor to delete.
+     * @returns {Promise} A promise that resolves to the response of the delete operation.
+     */
+        deleteDoctor = async (doctorId) =>{
+          return axios.delete(`${baseUrl}/${doctorId}`, getConfig());
+      }
 
   /**
    * Logs in a Doctor.
