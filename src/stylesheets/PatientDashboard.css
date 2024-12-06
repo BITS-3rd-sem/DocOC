@@ -1,359 +1,402 @@
 .container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    flex-direction: column;
-    background-color: #41b3a3;
-    z-index: -1;
-  }
-  
-  .container1 {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .container2,
-  .container3 {
-    flex-direction: column;
-    width: 100%;
-    height: 450px;
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    color: blue;
-    /* background-color: #f0f0f0; */
-    /* border: 2px solid #ddd; */
-    border-radius: 16px;
-  }
-  
-  .card {
-    width: 250px;
-    height: 250px;
-    border: 2px solid #ddd;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .cardActionArea {
-    text-decoration: none;
-    flex: 1;
-  }
-  
-  .cardMedia {
-    align-items: center;
-    width: 60%;
-    height: 50%;
-    object-fit: cover;
-  }
-  .cardMedia2 {
-    align-items: center;
-    width: 40%;
-    height: 30%;
-    object-fit: cover;
-  }
-  
-  .cardContent {
-    padding: 16px;
-    flex: 1;
-  }
-  
-  .cardTitle {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .cardDescription {
-    margin: 8px 0 0 0;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .ask-ai-tile {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease,
-      background-color 0.3s ease;
-  }
-  
-  .ask-ai-tile:hover {
-    background-color: #1976d2; /* Darker blue on hover */
-  }
-  
-  .dashboard-header {
-    align-items: center;
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    /* max-width: 1200px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-direction: column;
+  background-color: #41b3a3;
+  z-index: -1;
+}
+
+.container1 {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.container2,
+.container3 {
+  flex-direction: column;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  color: blue;
+  /* background-color: #f0f0f0; */
+  /* border: 2px solid #ddd; */
+  border-radius: 16px;
+}
+
+.card {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardActionArea {
+  text-decoration: none;
+  flex: 1;
+}
+
+.cardMedia {
+  align-items: center;
+  width: 60%;
+  height: 50%;
+  object-fit: cover;
+}
+.cardMedia2 {
+  align-items: center;
+  width: 40%;
+  height: 30%;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 16px;
+  flex: 1;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.cardDescription {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.ask-ai-tile {
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.ask-ai-tile:hover {
+  background-color: #1976d2; /* Darker blue on hover */
+}
+
+.dashboard-header {
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  /* max-width: 1200px;
       margin-bottom: 20px; */
-  }
-  
-  .dashboard-header h2 {
-    align-items: center;
-    margin: 0;
-    color: #333;
-    font-size: 1.5rem;
-  }
-  
-  .Upcoming-appointments {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    align-items: center;
-    margin: 0;
-    color: #ffffff;
-    font-size: 1.75rem;
-    border-radius: 5px;
-    text-underline-position: below;
-  }
-  
-  .open-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .open-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .dialog-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    border-radius: 10px;
-    color: rgb(38, 162, 0);
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
-  
-  .close-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .close-button:hover {
-    background-color: #b02a37;
-  }
-  
-  /* Upcoming Appointments */
-  .showAppointmentbutton {
-    padding: 10px 10px;
-    margin: 10px;
-    font-size: 16px;
-    background-color: #009ffb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .showAppointmentbutton:hover {
-    background-color: #006eff;
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .cancelAppointmentbutton {
-    padding: 10px 10px;
-    font-size: 16px;
-    background-color: #fb5c00;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .cancelAppointmentbutton:hover {
-    background-color: #b02a37;
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .upcomingAppCard {
-    width: 250px;
-    height: 330px;
-    border: 2px solid #ddd;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-  
-  .upcomingAppCard:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .buttons {
-    gap: 20px;
-    padding: 20px;
-    align-items: center;
-  }
-  
-  /* Appointment cancel button */
-  
-  .appointmentCancelDialog-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    border-radius: 10px;
-    color: rgb(144, 122, 0);
-  }
-  .appointmentCancleYes-button {
-    padding: 10px 20px;
-    margin: 20px;
-    font-size: 16px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    left: 10px;
-  }
-  
-  .appointmentCancleYes-button:hover {
-    background-color: #b02a37;
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .appointmentCancleNo-button {
-    padding: 10px 20px;
-    margin: 20px;
-    font-size: 16px;
-    background-color: #19a2d8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    right: 10px;
-  }
-  
-  .appointmentCancleNo-button:hover {
-    background-color: #0090c8;
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* AI card form */
-  .AIcard {
-    width: 250px;
-    height: 250px;
-    border: 2px solid #ddd;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-  .AIcard:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .SymptomDialog {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .AIDiagnosisCancel-button {
-    margin: 20px;
-    font-size: 16px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    left: 0px;
-  }
-  
-  .AIDiagnosisCancel-button:hover {
-    background-color: #b02a37;
-    color: #efefef;
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .AIDiagnosisSubmit-button {
-    margin: 20px;
-    font-size: 16px;
-    background-color: #19a2d8;
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    right: 0px;
-  }
-  
-  .AIDiagnosisSubmit-button:hover {
-    background-color: #0090c8;
-    color: #efefef;
-    transform: scale(1.15);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .SymptomDialogTitle {
-    color: #41b3a3;
-  }
-  
-  
-  
+}
+
+.dashboard-header h2 {
+  align-items: center;
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.Upcoming-appointments {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  align-items: center;
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.75rem;
+  border-radius: 5px;
+  text-underline-position: below;
+}
+
+.open-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.open-button:hover {
+  background-color: #0056b3;
+}
+
+.dialog-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 10px;
+  color: rgb(38, 162, 0);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.close-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #b02a37;
+}
+
+/* Upcoming Appointments */
+.showAppointmentbutton {
+  padding: 10px 10px;
+  margin: 10px;
+  font-size: 16px;
+  background-color: #009ffb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.showAppointmentbutton:hover {
+  background-color: #006eff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cancelAppointmentbutton {
+  padding: 10px 10px;
+  font-size: 16px;
+  background-color: #fb5c00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelAppointmentbutton:hover {
+  background-color: #b02a37;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.upcomingAppCard {
+  width: 250px;
+  height: 330px;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upcomingAppCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
+}
+
+/* Appointment cancel button */
+
+.appointmentCancelDialog-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 10px;
+  color: rgb(144, 122, 0);
+}
+.appointmentCancleYes-button {
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: 10px;
+}
+
+.appointmentCancleYes-button:hover {
+  background-color: #b02a37;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.appointmentCancleNo-button {
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 16px;
+  background-color: #19a2d8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  right: 10px;
+}
+
+.appointmentCancleNo-button:hover {
+  background-color: #0090c8;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* AI card form */
+.AIcard {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.AIcard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.SymptomDialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AIDiagnosisCancel-button {
+  margin: 20px;
+  font-size: 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: 0px;
+}
+
+.AIDiagnosisCancel-button:hover {
+  background-color: #b02a37;
+  color: #efefef;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.AIDiagnosisSubmit-button {
+  margin: 20px;
+  font-size: 16px;
+  background-color: #19a2d8;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  right: 0px;
+}
+
+.AIDiagnosisSubmit-button:hover {
+  background-color: #0090c8;
+  color: #efefef;
+  transform: scale(1.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.SymptomDialogTitle {
+  color: #41b3a3;
+}
+
+/* //  */
+.doctorcard {
+  width: 300px;
+  height: 450px;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.doctorcard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.doctorcardActionArea {
+  text-decoration: none;
+  flex: 1;
+}
+
+.doctorcardMedia {
+  align-items: center;
+  width: 60%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.doctorcardContent {
+  padding: 16px;
+  flex: 1;
+}
+
+.doctorcardTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.doctorcardDescription {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

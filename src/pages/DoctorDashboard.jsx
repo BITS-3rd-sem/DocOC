@@ -5,8 +5,6 @@ import medicalReport from "../assets/images/medical-report.png";
 import "../stylesheets/PatientDashboard.css";
 import healthInsurance from "../assets/images/health-insurance.png";
 import PatientService from "../helpers/http/PatientService";
-import AppointmentService from "../helpers/http/AppointmentService";
-import DoctorService from "../helpers/http/DoctorService";
 import AIService from "../helpers/http/AIService";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../helpers/contexts/AuthContext";
@@ -26,8 +24,7 @@ import {
   DialogContentText,
 } from "@mui/material";
 
-const PatientDashboard = () => {
-  const [appointments, setAppointments] = useState([]);
+const DoctorDashboard = () => {
   const [Patient, setPatient] = useState();
   const auth = useAuth();
   const [isTile2DialogOpen, setIsDialogOpen] = useState(false);
@@ -65,71 +62,68 @@ const PatientDashboard = () => {
     observation: "",
     recommendedSpecialization: "",
   });
-  const [doctors, setDoctors] = useState([]);
   const navigate = useNavigate();
 
   // Initialize form values and allFieldsPresent based on details
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        var user;
-        const token = localStorage.getItem("token");
-        if (!token) {
-          navigate("/");
-        } else {
-          console.log("Hii");
-          PatientService.getAllpatients().then((response) => {
-            console.log("All patiennts", response.data);
-          });
-          console.log("auth.user.name");
-          console.log(auth.user.userId);
-          await PatientService.getpatientById(auth.user.userId)
-            .then((response) => {
-              setPatient(response.data);
-              user = response.data;
-              console.log("patiennt", response.data);
-            })
-            .catch((error) => {
-              console.error("Error fetching patient:", error);
-            });
-        }
-        // user = PatientService.getUserById(details.id);
-        console.log("user", user);
-        if (user) {
-          console.log("Inside");
-          const areAllFieldsPresent2 =
-            user.age &&
-            user.phoneNo &&
-            user.gender &&
-            user.height &&
-            user.weight;
-          setFormValues({
-            gender: user.gender || "",
-            phoneNo: user.phoneNo || "",
-            age: user.age || "",
-            weight: user.weight || "",
-            height: user.height || "",
-          });
-          setAllFieldsPresent(areAllFieldsPresent2);
-          handleDialogClose();
-        }
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       try {
+  //         var user;
+  //         const token = localStorage.getItem("token");
+  //         // if (!token) {
+  //         //   navigate("/");
+  //         // } else {
+  //           console.log("Hii");
+  //           PatientService.getAllpatients().then((response) => {
+  //             console.log("All patiennts", response.data);
+  //           });
+  //           console.log("auth.user.name");
+  //           console.log(auth.user.userId);
+  //           await PatientService.getpatientById(auth.user.userId)
+  //             .then((response) => {
+  //               setPatient(response.data);
+  //               user = response.data;
+  //               console.log("patiennt", response.data);
+  //             })
+  //             .catch((error) => {
+  //               console.error("Error fetching patient:", error);
+  //             });
+  //         // }
+  //         // user = PatientService.getUserById(details.id);
+  //         console.log("user", user);
+  //         if (user) {
+  //           console.log("Inside");
+  //           const areAllFieldsPresent2 =
+  //             user.age &&
+  //             user.phoneNo &&
+  //             user.gender &&
+  //             user.height &&
+  //             user.weight;
+  //           setFormValues({
+  //             gender: user.gender || "",
+  //             phoneNo: user.phoneNo || "",
+  //             age: user.age || "",
+  //             weight: user.weight || "",
+  //             height: user.height || "",
+  //           });
+  //           setAllFieldsPresent(areAllFieldsPresent2);
+  //           handleDialogClose();
+  //         }
 
-        //     const response = await PatientService.getpatientById(auth.user.userId);
-        //     setPatient(response.data);
-        //     user = response.data;
-        //     console.log("Patient", response.data);
-        //     // Add next steps here
-        //   } catch (error) {
-        //     console.error("Error fetching patient:", error);
-        //   }
-      } catch (error) {
-        console.error("Error fetching patient:", error);
-      }
-    };
-    fetchData();
-    fetchAppointments();
-    fetchdoctors();
-  }, []);
+  //         //     const response = await PatientService.getpatientById(auth.user.userId);
+  //         //     setPatient(response.data);
+  //         //     user = response.data;
+  //         //     console.log("Patient", response.data);
+  //         //     // Add next steps here
+  //         //   } catch (error) {
+  //         //     console.error("Error fetching patient:", error);
+  //         //   }
+  //       } catch (error) {
+  //         console.error("Error fetching patient:", error);
+  //       }
+  //     };
+  //     fetchData();
+  //   }, []);
 
   const handleLogout = () => {
     auth.logout();
@@ -275,10 +269,11 @@ const PatientDashboard = () => {
   };
 
   const handleSymptomDailogFormAISubmit = async () => {
+    // var symptom =symptomForAIDiagnosis.symptom.trim();
     if (symptomForAIDiagnosis.symptom.trim()) {
       try {
         console.log("SYMPTOM:", symptomForAIDiagnosis);
-
+        // const token = localStorage.getItem("token");
         await AIService.getAIRecommendation(symptomForAIDiagnosis).then(
           (response) => {
             console.log("AI  RESPONSE", response.data);
@@ -301,31 +296,6 @@ const PatientDashboard = () => {
     navigate("/doctor-appointment");
   };
 
-  const fetchAppointments = async () => {
-    console.log("fetching Appointments");
-    await AppointmentService.getPatientAppointments(auth.user.userId)
-      .then((response) => {
-        setAppointments(response.data);
-
-        console.log("Appointments", response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching appointments:", error);
-      });
-  };
-
-  const fetchdoctors = async () => {
-    console.log("fetching doctors");
-    await DoctorService.getAllDoctors()
-      .then((response) => {
-        // setdoctordetails(response.data);
-        setDoctors(response.data.doctors);
-        console.log("doctorsss", response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching all doctors:", error);
-      });
-  };
   return (
     <div className="container">
       <div>
@@ -333,7 +303,7 @@ const PatientDashboard = () => {
           {/* Always show Patient Dashboard and Profile Menu */}
           <header className="dashboard-header">
             <center>
-              <h2>Patient Dashboard</h2>
+              <h2>Doctor Dashboard</h2>
             </center>
             <div className="profile-menu">
               <Avatar
@@ -359,139 +329,13 @@ const PatientDashboard = () => {
         </center>
       </div>
 
-      {!allFieldsPresent && (
-        <div className="centered-button">
-          <Button variant="contained" onClick={handleDialogOpen}>
-            Update Details
-          </Button>
-        </div>
-      )}
-
-      {allFieldsPresent && (
+      {
         <>
-          <div className="container1">
-            <div className="card" onClick={handleAppointmentClick}>
-              <div className="cardActionArea">
-                <center>
-                  <img
-                    src={medicalHistoryImage}
-                    alt="medicalHistoryImage"
-                    className="cardMedia"
-                  />
-                </center>
-                <div className="cardContent">
-                  <h5 className="cardTitle">Book Appointment</h5>
-                  <p className="cardDescription">
-                    You can directly select the doctor
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="AIcard" onClick={handleOpenSymptomDailogFormAI}>
-              <div className="cardActionArea">
-                <center>
-                  <img
-                    src={AIaskImage}
-                    alt="AIaskImage"
-                    className="cardMedia"
-                  />
-                </center>
-                <div className="cardContent">
-                  <h5 className="cardTitle">Ask AI</h5>
-                  <p className="cardDescription">Diagnose here</p>
-                </div>
-              </div>
-            </div>
-
-            {
-              <Dialog
-                open={symptomDailogFormAI}
-                onClose={handleSymptomDailogFormAISubmit}
-                className="SymptomDialog"
-              >
-                <center>
-                  <DialogTitle className="SymptomDialogTitle">
-                    {" "}
-                    AI Diagnosis
-                  </DialogTitle>
-                </center>
-                <DialogContent>
-                  {symptomDailogFormAISubmitted ? (
-                    AIResponse.observation !== "" ? (
-                      <>
-                        <h6> Observation: </h6>
-                        <p>{AIResponse.observation}</p>
-                        <br />
-                        <h6> recommended Specialization : </h6>
-                        <p> {AIResponse.recommendedSpecialization} </p>
-                        <center>
-                          <Button
-                            onClick={handleCloseSymptomDailogFormAI}
-                            className="AIDiagnosisSubmit-button"
-                          >
-                            Close
-                          </Button>
-                        </center>
-                      </>
-                    ) : (
-                      <>
-                        <p> Sorry try after some time!</p>
-                        <center>
-                          {" "}
-                          <Button
-                            onClick={handleCloseSymptomDailogFormAI}
-                            className="AIDiagnosisSubmit-button"
-                          >
-                            Close
-                          </Button>
-                        </center>
-                      </>
-                    )
-                  ) : (
-                    <>
-                      <textarea
-                        placeholder="Please enter your Symptoms here.."
-                        value={symptomForAIDiagnosis.symptom}
-                        onChange={(e) =>
-                          setSymptomForAIDiagnosis({
-                            ...symptomForAIDiagnosis,
-                            symptom: e.target.value,
-                          })
-                        }
-                        rows="4"
-                        cols="30"
-                      ></textarea>
-                      <br></br>
-                      <center>
-                        <Button
-                          onClick={handleCloseSymptomDailogFormAI}
-                          className="AIDiagnosisCancel-button"
-                        >
-                          Close
-                        </Button>
-
-                        <Button
-                          onClick={handleSymptomDailogFormAISubmit}
-                          className="AIDiagnosisSubmit-button"
-                        >
-                          Submit
-                        </Button>
-                      </center>
-                    </>
-                  )}
-                </DialogContent>
-              </Dialog>
-            }
-          </div>
-
           <div className="container2">
             <center>
               <div className="Upcoming-appointments">Upcoming Appointments</div>
             </center>
-            {/* {      appointments &&  <> */}
             <div className="container4">
-              {/* {appointments.map((appointment) => { */}
               <div className="upcomingAppCard">
                 <div className="cardActionArea">
                   <center>
@@ -502,8 +346,8 @@ const PatientDashboard = () => {
                     />
                   </center>
                   <div className="cardContent">
-                    <h5 className="cardTitle">Appointment with Dr. Name</h5>
-                    <p className="cardDescription">on date: </p>
+                    <h5 className="cardTitle">Appointment with Patient X</h5>
+                    <p className="cardDescription">on date:</p>
 
                     <center>
                       <button
@@ -564,15 +408,7 @@ const PatientDashboard = () => {
                   </div>
                 </>
               )}
-
-              {/* })} */}
             </div>
-            {/* </>} */}
-            {appointments.length === 0 && (
-              <>
-                <h4> No Upcomping Appointments</h4>
-              </>
-            )}
           </div>
 
           <div className="container3">
@@ -634,7 +470,7 @@ const PatientDashboard = () => {
             </div>
           </div>
         </>
-      )}
+      }
 
       <Dialog open={openDialog} onClose={handleDialogClose}>
         <form onSubmit={handleSubmit}>
@@ -804,4 +640,4 @@ const PatientDashboard = () => {
   );
 };
 
-export default PatientDashboard;
+export default DoctorDashboard;
