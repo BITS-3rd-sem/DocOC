@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8080/patient";
+const baseUrl = "http://localhost:8081/api/v1/patient";
 
 const getBearerToken = () => {
   return localStorage.getItem("token");
@@ -46,7 +46,7 @@ class PatientService {
    * @returns {Promise} A promise that resolves to the response containing the created patient.
    */
   // createpatient = async (patientData) =>{
-//     return await axios.post(`${baseUrl}`, patientData, getConfig());
+  //     return await axios.post(`${baseUrl}`, patientData, getConfig());
   // }
 
   /**
@@ -72,4 +72,3 @@ class PatientService {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default new PatientService();
-
